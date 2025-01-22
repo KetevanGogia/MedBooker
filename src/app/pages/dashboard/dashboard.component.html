@@ -1,0 +1,59 @@
+<ng-container *ngIf="user.entityNo == userRoles.Patient; else doctorDashboard">
+  <mat-card class="patient card" routerLink="/search">
+    <mat-card-content>
+      <h5>Need to see a doctor?</h5>
+      <p>
+        Search for a healthcare professional close to you using the find a
+        provider tool
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="patient card" routerLink="/upcoming-consultations">
+    <mat-card-content>
+      <h5>Upcoming consultations</h5>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="patient card" routerLink="/health-records">
+    <mat-card-content>
+      <h5>Health records</h5>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
+<ng-template #doctorDashboard>
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile
+      class="column requests"
+      rowspan="3.5"
+      *ngIf="bookings$ | async as bookings"
+    >
+      <div class="request-card">
+        <h5>Consultation requests</h5>
+        <hr />
+        <div *ngIf="bookings.length; else noConsultationRequests">
+          <app-booking-request-card
+            *ngFor="let booking of bookings; trackBy: identify"
+            [booking]="booking"
+            (onStatusChange)="acceptRejectBtns($event)"
+          ></app-booking-request-card>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="column">
+      <mat-card class="doctor card" routerLink="/upcoming-consultations">
+        <mat-card-content>
+          <h5>Upcoming consultations</h5>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card class="doctor card" routerLink="/patients">
+        <mat-card-content>
+          <h5>Patients</h5>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-template>
+<ng-template #noConsultationRequests>
+  <div class="empty-requests">No consultation requests</div>
+</ng-template>

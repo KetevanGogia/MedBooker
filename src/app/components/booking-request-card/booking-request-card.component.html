@@ -1,0 +1,30 @@
+<mat-card class="card">
+  <mat-card-content>
+    <div class="request-card__content">
+      <div id="date" class="request-card__content__time">
+        {{ booking?.startTime | isoDate }}
+      </div>
+      <div>{{ booking?.startTime | date : "shortTime" }}</div>
+      <div class="request-card__content__name">
+        <img src="../../../assets/images/patient.png" alt="patient" />
+        <span>{{ booking?.attendees | name : attendeeType.Patient }}</span>
+      </div>
+      <div class="request-card__content__btns">
+        <button
+          (click)="acceptRejectBtns(booking?.id, bookingStatus.Confirmed)"
+          mat-stroked-button
+          color="primary"
+        >
+          Accept
+        </button>
+        <button
+          (click)="acceptRejectBtns(booking?.id, bookingStatus.Declined)"
+          mat-stroked-button
+          color="warn"
+        >
+          Reject
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

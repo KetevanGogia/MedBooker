@@ -1,0 +1,32 @@
+.wrapper {
+  overflow-y: scroll;
+  background-color: rgb(220, 220, 247);
+}
+.appointments {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  row-gap: 1rem;
+  position: absolute;
+  top: 0;
+}
+.close {
+  justify-self: flex-end;
+  align-self: flex-end;
+  cursor: pointer;
+}
+.container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.no-booking {
+  text-align: center;
+}
+h5 {
+  margin-bottom: 1rem;
+}
+hr {
+  margin-bottom: 0.6rem;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}

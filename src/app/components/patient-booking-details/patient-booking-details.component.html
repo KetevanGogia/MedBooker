@@ -1,0 +1,25 @@
+<div *ngIf="chosenPatient" class="booking-details">
+  <div class="booking-details__info">
+    <img src="../../../assets/images/patient.png" alt="" />
+    <div>
+      <span id="name">{{ chosenPatient.firstName }}</span
+      >&nbsp;<span>{{ chosenPatient.lastName }}</span>
+    </div>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="bookPatient(chosenPatient)">
+    <input
+      nbInput
+      placeholder="Pick Date"
+      [nbDatepicker]="dateTimePicker"
+      formControlName="startDate"
+    />
+    <nb-date-timepicker
+      #dateTimePicker
+      singleColumn
+      [step]="10"
+    ></nb-date-timepicker>
+    <button mat-raised-button color="accent" [disabled]="!form.valid">
+      Create appointment
+    </button>
+  </form>
+</div>

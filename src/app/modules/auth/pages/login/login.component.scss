@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope&family=Poppins&display=swap");
+@import "../../../../../styles.scss";
+.form-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgb(244, 49, 117, 0.2);
+}
+.login-form {
+  font-family: "Manrope", sans-serif;
+  padding: 1rem;
+  &__header {
+    margin-bottom: 1rem;
+  }
+  &__wrapper {
+    padding: 5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  &__content {
+    grid-column: 1/2;
+    justify-self: stretch;
+    &.element {
+      background-color: red;
+    }
+  }
+  &__actions {
+    background: #ec008c;
+    background: -webkit-linear-gradient(to left, #fc6767, #ec008c);
+    background: linear-gradient(to left, #fc6767, #ec008c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__redirect {
+    grid-column-start: 2;
+    a {
+      color: $light-color;
+      text-decoration: none;
+      font-weight: bold;
+      div {
+        border: 1px solid $light-color;
+        margin-top: 2rem;
+        padding: 1rem;
+        text-align: center;
+        transition: 0.5s ease-in;
+      }
+      div:hover {
+        background-color: rgb(150, 148, 148, 0.5);
+        transition: 0.5s ease-in;
+      }
+    }
+  }
+  button {
+    width: 70%;
+  }
+}
+.login-element {
+  mat-form-field {
+    width: 70%;
+  }
+}

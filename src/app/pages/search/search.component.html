@@ -1,0 +1,24 @@
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile colspan="2" rowspan="2" class="mat-column-first">
+    <app-map></app-map>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1" rowspan="5.5" class="mat-column-second">
+    <div class="mat-column-second__content">
+      <form class="form" [formGroup]="form">
+        <mat-form-field class="form__input-field">
+          <mat-label>Doctor firstName</mat-label>
+          <input matInput formControlName="firstName" />
+        </mat-form-field>
+        <mat-form-field class="form__input-field">
+          <mat-label>Doctor lastname</mat-label>
+          <input matInput formControlName="lastName" />
+        </mat-form-field>
+      </form>
+      <app-book-entity-card
+        *ngFor="let doctor of doctors$ | async; trackBy: identify"
+        [doctor]="doctor"
+        (onBook)="book($event)"
+      ></app-book-entity-card>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,99 @@
+<nb-layout>
+  <nb-layout-column>
+    <!-- <div class="form-container"> -->
+    <form [formGroup]="form" (ngSubmit)="register()" class="login-form">
+      <mat-card class="login-form__wrapper">
+        <mat-card-header class="login-form__header">
+          <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="login-form__content">
+          <div class="register-element">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Firstname</mat-label>
+              <input
+                matInput
+                placeholder="enter user name"
+                value=""
+                formControlName="firstName"
+              />
+            </mat-form-field>
+          </div>
+          <div class="register-element">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Lastname</mat-label>
+              <input
+                matInput
+                placeholder="enter user name"
+                value=""
+                formControlName="lastName"
+              />
+            </mat-form-field>
+          </div>
+          <div class="register-element">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>E-mail</mat-label>
+              <input
+                matInput
+                placeholder="enter user name"
+                value=""
+                formControlName="email"
+              />
+            </mat-form-field>
+          </div>
+          <div class="register-element">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                placeholder="enter user name"
+                value=""
+                type="password"
+                formControlName="password"
+              />
+            </mat-form-field>
+          </div>
+          <div class="register-element">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Confirm password</mat-label>
+              <input
+                matInput
+                placeholder="enter user name"
+                value=""
+                type="password"
+                formControlName="confirmPassword"
+              />
+            </mat-form-field>
+          </div>
+          <div class="register-element">
+            <mat-radio-group
+              aria-label="Select an option"
+              formControlName="entityNo"
+            >
+              <div>
+                <mat-label>Choose role</mat-label>
+              </div>
+              <mat-radio-button [value]="userRoles.Provider"
+                >Doctor</mat-radio-button
+              >
+              <mat-radio-button [value]="userRoles.Patient"
+                >Patient</mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+          <button mat-fab extended type="submit" [disabled]="!form.valid">
+            Register
+          </button>
+        </mat-card-content>
+        <mat-card-actions class="login-form__actions">
+          <div class="login-form__redirect">
+            <a routerLink="/auth/login"
+              >Already have an account ?
+              <div>Sign In</div></a
+            >
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+    <!-- </div> -->
+  </nb-layout-column>
+</nb-layout>

@@ -1,0 +1,36 @@
+<h5>Patients</h5>
+<hr />
+<mat-grid-list cols="2" rowHeight="2:1">
+  <form class="search-patient" [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Firstname</mat-label>
+      <input matInput formControlName="firstName" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Lastname</mat-label>
+      <input matInput formControlName="lastName" />
+    </mat-form-field>
+  </form>
+  <mat-grid-tile rowspan="5">
+    <div class="patient-list">
+      <div
+        *ngFor="let patient of patients$ | async; trackBy: identify"
+        class="patient-list__item"
+      >
+        <app-book-patient-card
+          [patient]="patient"
+          (onEnableBooking)="enableBooking($event)"
+        ></app-book-patient-card>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="details" *ngIf="chosenPatient$ | async as chosenPatient">
+      <app-patient-booking-details
+        *ngIf="seeBookingDetails"
+        [chosenPatient]="chosenPatient"
+        (newBooking)="handleCreateBooking($event)"
+      ></app-patient-booking-details>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

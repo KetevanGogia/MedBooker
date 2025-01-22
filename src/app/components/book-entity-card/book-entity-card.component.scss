@@ -1,0 +1,21 @@
+.doctor {
+  border: 1px solid black;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  &__name {
+    font-weight: 700;
+    padding: 0.5rem;
+    background-color: rgb(250, 157, 172);
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+  }
+  &__practicename {
+    font-style: italic;
+  }
+}

@@ -1,0 +1,39 @@
+<div class="appointments-content" (click)="enableDetails(booking)">
+  <mat-card class="appointments-content__card">
+    <div class="appointments-content__date">
+      <div id="date">{{ booking?.startTime | isoDate }}</div>
+      <div>{{ booking?.startTime | date : "shortTime" }}</div>
+    </div>
+    <div
+      class="appointments-content__doctorinfo"
+      *ngIf="currentUser.entityNo == userRoles.Patient"
+    >
+      <div class="appointments-content__name">
+        <img
+          src="../../../assets/images/doctor-patient.png"
+          alt=""
+          class="appointments-content__img"
+        />
+        <span>{{ booking?.attendees | name : attendeeType.Provider }}</span>
+      </div>
+      <div class="appointments-content__practiceName">
+        {{ booking?.practiceName }}
+      </div>
+    </div>
+    <div
+      class="appointments-content__doctorinfo"
+      *ngIf="currentUser.entityNo == userRoles.Provider"
+    >
+      <div class="appointments-content__name">
+        <img
+          src="../../../assets/images/doctor-patient.png"
+          alt=""
+          class="appointments-content__img"
+        />
+        <h6>
+          {{ booking?.attendees | name : attendeeType.Patient }}
+        </h6>
+      </div>
+    </div>
+  </mat-card>
+</div>

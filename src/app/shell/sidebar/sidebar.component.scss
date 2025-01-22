@@ -1,0 +1,24 @@
+@import "../../../styles.scss";
+.navigation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  row-gap: 1.5rem;
+  &__item {
+    button {
+      @include NavigationButtons($light-color: true);
+      transition: 0.3s ease-in;
+      &:hover {
+        @include NavigationButtons($light-color: false);
+        transition: 0.3s ease-in;
+      }
+    }
+  }
+}
+.active {
+  background-color: $dark-color;
+  span {
+    color: white;
+  }
+}

@@ -1,0 +1,10 @@
+<div class="doctor">
+  <div class="doctor__name">
+    <span id="name">{{ doctor?.firstName }}</span
+    >&nbsp;<span>{{ doctor?.lastName }}</span>
+  </div>
+  <div class="doctor__practicename">{{ doctor?.practiceName }}</div>
+  <button mat-stroked-button color="accent" (click)="book(doctor?.entityNo)">
+    Book
+  </button>
+</div>

@@ -1,0 +1,49 @@
+.request-card__content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 3rem;
+  &__time {
+    grid-column: 1;
+    grid-row: 1/2;
+  }
+  &__time::after {
+    content: "";
+    border-left: 2px solid red;
+    height: 90%;
+    position: absolute;
+    top: 3.5px;
+    left: 120px;
+  }
+  &__name {
+    grid-column: 2;
+    grid-row: 1;
+    text-transform: capitalize;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    column-gap: 0.4rem;
+    margin-bottom: 0.4rem;
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+  &__btns {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    column-gap: 0.5rem;
+  }
+}
+.card {
+  margin-bottom: 1rem;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 2px solid red;
+}

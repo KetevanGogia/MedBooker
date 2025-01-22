@@ -1,0 +1,40 @@
+<mat-card>
+  <i class="fa-solid fa-timer"></i>
+  <div class="details">
+    <div class="details__header">
+      <div class="details__header__date">
+        <i class="fa-solid fa-calendar-days"></i>
+        <span id="date">{{ selectedBooking?.startTime | isoDate }}</span>
+      </div>
+      <div>
+        <span>{{ selectedBooking?.startTime | date : "shortTime" }}</span>
+      </div>
+    </div>
+    <div>{{ selectedBooking?.status }}</div>
+    <div *ngIf="currentUser.entityNo == userRoles.Patient">
+      <div class="details__firstname">
+        {{ selectedBooking?.attendees | name : attendeeType.Provider }}
+      </div>
+      <div>{{ selectedBooking?.practiceName }}</div>
+    </div>
+    <div *ngIf="currentUser.entityNo == userRoles.Provider">
+      <div class="details__firstname">
+        {{ selectedBooking?.attendees | name : attendeeType.Patient }}
+      </div>
+    </div>
+    <button
+      *ngIf="displayCancelBtn"
+      mat-raised-button
+      color="warn"
+      (click)="
+        cancelBooking(selectedBooking?.id, {
+          bookingStatus: bookingStatus.Cancelled,
+          comment: 'string',
+          includeDependent: true
+        })
+      "
+    >
+      Cancel
+    </button>
+  </div>
+</mat-card>

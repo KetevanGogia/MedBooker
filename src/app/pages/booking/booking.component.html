@@ -1,0 +1,50 @@
+<div *ngIf="doctor$ | async as doctor" id="doctor">
+  <nb-card size="large">
+    <nb-card-body>
+      <div class="doctor">
+        <div class="doctor__name">
+          <img src="../../../assets/images/doctor-patient.png" alt="" />
+          <div>
+            <span>{{ doctor.firstName }}</span
+            >&nbsp;<span>{{ doctor.lastName }}</span>
+          </div>
+        </div>
+        <div class="doctor__practicename">{{ doctor.practiceName }}</div>
+        <form
+          [formGroup]="form"
+          (ngSubmit)="bookDoctor(doctor)"
+          class="doctor__form"
+        >
+          <input
+            nbInput
+            placeholder="Pick Date"
+            [nbDatepicker]="dateTimePicker"
+            class="doctor__time"
+            formControlName="startDate"
+          />
+          <div
+            class="doctor__validationMsg"
+            *ngIf="form.controls['startDate']?.touched && form.controls['startDate']?.errors?.['required']"
+          >
+            Please select the date
+          </div>
+          <nb-date-timepicker
+            #dateTimePicker
+            singleColumn
+            [step]="30"
+          ></nb-date-timepicker>
+          <div class="doctor__book">
+            <button
+              mat-stroked-button
+              color="accent"
+              type="submit"
+              [disabled]="!form.valid"
+            >
+              Book
+            </button>
+          </div>
+        </form>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

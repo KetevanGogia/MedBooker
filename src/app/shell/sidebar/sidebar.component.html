@@ -1,0 +1,60 @@
+<div *ngIf="user">
+  <ng-container *ngIf="user.entityNo == userRoles.Patient; else forDoctors">
+    <nav>
+      <ul class="navigation-container">
+        <li class="navigation-container__item">
+          <button routerLink="/dashboard" routerLinkActive="active">
+            <span> Dashboard</span>
+          </button>
+        </li>
+        <li class="navigation-container__item">
+          <button routerLink="/search" routerLinkActive="active">
+            <span>Doctors</span>
+          </button>
+        </li>
+        <li class="navigation-container__item">
+          <button
+            routerLink="/upcoming-consultations"
+            routerLinkActive="active"
+          >
+            <span>Upcoming consultation</span>
+          </button>
+        </li>
+        <li class="navigation-container__item">
+          <button routerLink="/health-records" routerLinkActive="active">
+            <span> Health Record</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </ng-container>
+  <ng-template #forDoctors>
+    <nav>
+      <ul class="navigation-container">
+        <li class="navigation-container__item">
+          <button routerLink="/dashboard" routerLinkActive="active">
+            <span>Dashboard</span>
+          </button>
+        </li>
+        <li class="navigation-container__item">
+          <button routerLink="/patients" routerLinkActive="active">
+            <span>Patients</span>
+          </button>
+        </li>
+        <li class="navigation-container__item">
+          <button
+            routerLink="/upcoming-consultations"
+            routerLinkActive="active"
+          >
+            <span>Upcoming consultation</span>
+          </button>
+        </li>
+        <li class="navigation-container__item">
+          <button routerLink="/request-consultation" routerLinkActive="active">
+            <span>Consultation Requests</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </ng-template>
+</div>

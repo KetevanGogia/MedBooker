@@ -1,0 +1,16 @@
+<ng-container *ngIf="bookings$ | async as bookings">
+  <div class="requests-container">
+    <h5>Consultation requests</h5>
+    <hr />
+    <div *ngIf="bookings.length; else noConsultationRequests">
+      <app-booking-request-card
+        *ngFor="let booking of bookings; trackBy: identify"
+        [booking]="booking"
+        (onStatusChange)="acceptRejectBtns($event)"
+      ></app-booking-request-card>
+    </div>
+  </div>
+</ng-container>
+<ng-template #noConsultationRequests>
+  <div class="no-requests">No requests</div>
+</ng-template>

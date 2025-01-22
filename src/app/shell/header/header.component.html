@@ -1,0 +1,16 @@
+<header class="header-container">
+  <div class="header-container__logo">
+    <img src="../../../assets/images/checkup.png" alt="" />
+    <div>MedBooker</div>
+  </div>
+  <div class="header-container__username"></div>
+  <div class="header-container__user">
+    <div *ngIf="user" class="header-container__username">
+      <span>{{ user.firstName }}</span
+      >&nbsp;<span>{{ user.lastName }}</span>
+    </div>
+    <button nbButton class="header-container__logoutBtn" (click)="logout()">
+      <span>Log Out</span>
+    </button>
+  </div>
+</header>

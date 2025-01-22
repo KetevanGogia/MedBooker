@@ -1,0 +1,36 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+  <h5>Health records</h5>
+  <hr />
+  <div *ngIf="bookings$ | async as bookings">
+    <div *ngIf="bookings.length; else noBookings">
+      <mat-grid-tile rowspan="2">
+        <div class="appointments">
+          <app-appointment-card
+            *ngFor="let booking of bookings; trackBy: identify"
+            [booking]="booking"
+            (onEnableDetails)="enableDetails($event)"
+          ></app-appointment-card>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div
+          *ngIf="selectedBooking$ | async as selectedBooking"
+          class="container"
+        >
+          <app-appointment-details
+            *ngIf="seeDetails"
+            [selectedBooking]="selectedBooking"
+            [seeDetails]="seeDetails"
+            [displayCancelBtn]="false"
+          ></app-appointment-details>
+        </div>
+      </mat-grid-tile>
+    </div>
+  </div>
+</mat-grid-list>
+<ng-template #noBookings>
+  <div class="no-booking">
+    <div>No bookings found</div>
+    <div class="no-booking__ball"></div>
+  </div>
+</ng-template>

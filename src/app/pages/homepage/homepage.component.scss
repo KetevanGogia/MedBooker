@@ -1,0 +1,20 @@
+@import "../../../styles.scss";
+.main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Manrope", sans-serif;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.3rem;
+  align-items: center;
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+}
+.layout {
+  background-color: red;
+}

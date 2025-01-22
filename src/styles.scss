@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@use "node_modules/@ngneat/hot-toast/src/styles/styles.scss";
+@import url("https://fonts.googleapis.com/css2?family=Manrope&family=Poppins&display=swap");
+$light-color: rgb(255, 255, 255);
+$dark-color: rgb(0, 0, 0);
+$color-pink: #ff4081;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+@mixin NavigationButtons($light-color: true) {
+  padding: 1rem 1.5rem;
+  width: 100%;
+  position: relative;
+  transition: 0.3s transform ease-in-out;
+  cursor: pointer;
+  @if $light-color {
+    background-color: $light-color;
+    color: $dark-color;
+    border: 2px solid $dark-color;
+  } @else {
+    background-color: rgb(141, 129, 129);
+    color: white;
+    border: 2px solid;
+  }
+}

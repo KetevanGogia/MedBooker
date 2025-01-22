@@ -1,0 +1,49 @@
+<nb-layout>
+  <nb-layout-column>
+    <!-- <div class="form-container"> -->
+    <form [formGroup]="form" (ngSubmit)="logIn()" class="login-form">
+      <mat-card class="login-form__wrapper">
+        <mat-card-header class="login-form__header">
+          <mat-card-title>Sign In</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="login-form__content">
+          <div class="login-element">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>User email</mat-label>
+              <input
+                formControlName="email"
+                matInput
+                placeholder="enter user name"
+                value=""
+              />
+            </mat-form-field>
+          </div>
+          <div class="login-element">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>User password</mat-label>
+              <input
+                formControlName="password"
+                matInput
+                placeholder="enter user name"
+                value=""
+                type="password"
+              />
+            </mat-form-field>
+          </div>
+          <button mat-fab extended type="submit" [disabled]="!form.valid">
+            Login
+          </button>
+        </mat-card-content>
+        <mat-card-actions class="login-form__actions">
+          <div class="login-form__redirect">
+            <a routerLink="/auth/register"
+              >Need account?
+              <div>Register</div></a
+            >
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+    <!-- </div> -->
+  </nb-layout-column>
+</nb-layout>
